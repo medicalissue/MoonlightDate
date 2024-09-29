@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달빛데이트🌙</title>
+</head>
+<body>
+    <h1>이미 제출하셨어요!</h1>
+    <p>한번만 입력 가능합니다!</p>
+
+    <h2>누가 몇번 선택됐나요?</h2>
+    <ul>
+        {% if names %}
+            {% for name, count in names.items() %}
+                <li>{{ name }}: {{ count }} 번</li>
+            {% endfor %}
+        {% else %}
+            <li>아직 아무도 입력하지 않았어요!</li>
+        {% endif %}
+    </ul>
+</body>
+</html>
