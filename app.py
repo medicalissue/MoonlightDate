@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # JSON 파일 경로
-DATA_FILE = 'data.json'
+DATA_FILE = '/home/medicalissue/MoonlightDate/data.json'
 
 # 데이터 로드 함수
 def load_data():
@@ -37,13 +37,13 @@ def index():
         if name:
             # 데이터 로드
             data = load_data()
-            
+
             # 이름이 이미 있으면 횟수를 증가시키고, 없으면 1로 설정
             if name in data:
                 data[name] += 1
             else:
                 data[name] = 1
-            
+
             # 데이터 저장
             save_data(data)
 
