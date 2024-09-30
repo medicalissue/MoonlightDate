@@ -15,13 +15,14 @@
 
     <h2>누가 몇번 선택됐나요?</h2>
     <ul>
-        {% if names %}
+        이름을 입력하거나, '없음'이라고 입력하여 조회해 보세요!
+        {% comment %} {% if names %}
             {% for name, count in names.items() %}
                 <li>{{ name }}: {{ count }} 번</li>
             {% endfor %}
         {% else %}
             <li>아직 아무도 입력하지 않았어요!</li>
-        {% endif %}
+        {% endif %} {% endcomment %}
     </ul>
 </body>
 </html>

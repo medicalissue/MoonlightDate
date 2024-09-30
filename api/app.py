@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # JSON 파일 경로
-DATA_FILE = 'data.json'
+DATA_FILE = '../data/data.json'
 
 # 데이터 로드 함수
 def load_data():
@@ -47,9 +47,9 @@ def index():
             # 데이터 저장
             save_data(data)
 
-            # 쿠키에 'already_submitted' 설정 (만료 기간은 1년으로 설정)
+            # 쿠키에 'already_submitted' 설정 (만료 기간은 30분으로 설정)
             response = make_response(redirect('/'))
-            response.set_cookie('already_submitted', 'true', max_age=60*60*24*365)  # 1년 동안 유효
+            response.set_cookie('already_submitted', 'true', max_age=60*30)  # 30분 동안 유효
             return response
 
     # 저장된 이름 목록 가져오기
