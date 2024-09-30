@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # JSON 파일 경로
-DATA_FILE = '../data/data.json'
+DATA_FILE = 'data.json'
 
 # 데이터 로드 함수
 def load_data():
@@ -26,11 +26,11 @@ def save_data(data):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # 이미 이름을 입력한 경우 쿠키 체크
-    # if request.cookies.get('already_submitted'):
-    #     # 데이터 로드
-    #     data = load_data()
-    #     # 이미 입력한 경우, 입력 불가 페이지로 이동
-    #     return render_template('already_submitted.html', names=data)
+    if request.cookies.get('already_submitted'):
+        # 데이터 로드
+        data = load_data()
+        # 이미 입력한 경우, 입력 불가 페이지로 이동
+        return render_template('already_submitted.html', names=data)
 
     if request.method == 'POST':
         name = request.form['name']
